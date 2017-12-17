@@ -21,7 +21,7 @@ return array(
             'env' => 'dev',
             'fileSystemPath' => '/vagrant/public/',
             'frontEndAssets' => '/src/',
-            'siteName' => 'fpma',
+            'siteName' => 'bbr',
         )
     ),
 
@@ -29,9 +29,9 @@ return array(
         'devMode' => true,
         'environmentVariables' => array(
             'env' => 'dev',
-            'fileSystemPath' => '/var/www/the-lab/public/',
+            'fileSystemPath' => '/var/www/public/',
             'frontEndAssets' => '/src/',
-            'siteName' => 'the-lab',
+            'siteName' => 'bbr',
         )
     ),
 

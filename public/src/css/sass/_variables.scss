@@ -1,0 +1,45 @@
+/**
+ * This variables file was stolen from Bootstrap.
+ */
+
+//
+// Variables
+// --------------------------------------------------
+
+
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+$gray-dark:              #9f9f9f;   // #4a4a4a
+$gray-light:             #ccc; // #555
+$gray:                   #f2f2f2;
+$gray-border:            #d5d5d5; // #d4d4d4
+
+$purple:                #2e3192;
+$purple-light:          #dbdbdb;
+
+$gold:					#c0bd31;
+$brand-primary:         $purple;
+$brand-success:         #00a651;
+$brand-info:            #3b73b0;
+$brand-warning:         #f0ad4e;
+$brand-danger:          #d9534f;
+
+$white: 								#FFF;
+$black:                 #000;
+
+$off-white:             #f5f5f5;
+$red-dark:              #281111;
+
+$blue:                  #1680b1;
+
+$breakpoint-medium: 1024px !default;
+$breakpoint-small: 760px !default;
+
+$mobile: $breakpoint-small;
+$tablet: $breakpoint-medium;
+
+$mobile-device: $breakpoint-small;
+$tablet-device: $breakpoint-medium;
+
+$section-height: 657px;

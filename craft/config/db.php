@@ -10,12 +10,6 @@ return array(
         'password' => '',
         'database' => 'bbr',
     ),
-    '192.168.99.100' => array(
-        'server' => 'localhost',
-        'user' => 'root',
-        'password' => '',
-        'database' => 'bbr',
-    ),
     // Treat *.vagrantshare.com the same as localhost
     'vagrantshare.com' => array(
         'server' => 'localhost',
@@ -25,8 +19,8 @@ return array(
     ),
     'accessdomain.com' => array(
         'server' => 'localhost',
-        'user' => 'the-lab',
-        'password' => '@Z4?zDs%',
+        'user' => 'robbie',
+        'password' => 'Robbie+855',
         'database' => 'bbr',
     ),
     'eventsbythelab.com' => array(

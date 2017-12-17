@@ -1,0 +1,65 @@
+nav#mp-menu {
+  z-index: 3;
+  position: fixed;
+  background-color: $white;
+  width: 100%;
+  top: 0;
+  border-bottom: 1px solid $purple;
+  a {
+    text-decoration: none;
+  }
+  .mobile-logo {
+    font-size: 3rem;
+  }
+  .mobile-top {
+    height: 70px;
+    padding: 18px;
+  }
+  li {
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+  li a:not(.btn){
+    font-family: 'Heebo-Medium';     
+  }
+  @include desktop-tablet {
+    transform: none;
+    left: 0;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 13px;
+    transition: all .5s ease;
+    ul {
+      text-align: right;
+    }
+    li{
+      display: inline-block;
+      width: auto;
+      vertical-align: middle;
+      margin-left: 3%;
+    }
+    .mobile-top {
+      display: none;
+    }
+  }
+  @include mobile-only{
+    ul {
+      display: none
+    }
+  }
+}
+.menu-trigger#trigger {
+  background: transparent;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  cursor: pointer;
+  &:before {
+    background: tranparent;
+  }
+}
+@include desktop-only {
+  #trigger {
+    display: none;
+  }
+}
