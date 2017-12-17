@@ -19,7 +19,7 @@ return array(
         'devMode' => true,
         'environmentVariables' => array(
             'env' => 'dev',
-            'fileSystemPath' => '/vagrant/bbr/public/',
+            'fileSystemPath' => '/vagrant/public/',
             'frontEndAssets' => '/src/',
             'siteName' => 'bbr',
         )
@@ -29,7 +29,7 @@ return array(
         'devMode' => true,
         'environmentVariables' => array(
             'env' => 'dev',
-            'fileSystemPath' => '/var/www/public/',
+            'fileSystemPath' => '/var/www/bbr/public/',
             'frontEndAssets' => '/src/',
             'siteName' => 'bbr',
         )
