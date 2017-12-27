@@ -1,19 +1,27 @@
 footer {
   font-size: 14px;
   padding: 34px 5%;
+  font-family: 'Heebo';
+  font-weight: 700;      
   color: $purple-light;
   line-height: 22px;
   background-color: $purple;
   li {
     list-style: none;
     display: inline-block;
-    padding: 0 5px;
+    padding: 0 10px;
     a {
       transition: all .5s ease;
       text-decoration: none;      
       &:hover {
-        color: $white;      
+        color: $white;
       }
+    }
+  }
+  @include mobile-only {
+    text-align: center;
+    .copy-right {
+      margin-top: 30px;
     }
   }
 }

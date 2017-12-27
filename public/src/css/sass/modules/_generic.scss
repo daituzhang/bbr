@@ -1,9 +1,10 @@
 section {
   padding: 90px 5%;
-  background-position: 50% 50% !important;
+  background-position: 50% 50%;
   &.parallax {
     @include mobile-only {
       height: auto;
+      background-position: 50% 0 !important;
     }
   }
   * {
@@ -21,8 +22,9 @@ section {
       max-width: 840px;
     }
   }
-  @include tablet-mobile {
-    padding: 90px 5%;
+  @include mobile-only {
+    padding: 60px 5%;
+    text-align: center;
   }
 }
 .mobile-dropdown {
@@ -32,6 +34,8 @@ section {
       &:after {
         opacity: 1;
         transition: all .5s ease;
+        margin-left: 10px;
+        display: inline-block;
         @include triangle-right(7,$black,12);
       }
     }
@@ -53,11 +57,28 @@ section {
 
 section#hero {
   background-color: $white;
-  padding: 0;
   min-height: 0;
   overflow: hidden;
+  .btn {
+    max-width: 200px;
+  }
   .row {
     min-height: 790px;    
+  }
+  @include desktop-tablet {
+    background-size: auto 970px;
+  }
+  @include mobile-only {
+    background-image: url('/uploads/images/bbr_hero_mobile@2x.jpg') !important;
+    background-position: 50% 0 !important;
+    text-align: center;
+    .row {
+      min-height: 0;
+      margin-top: 360px;
+    }
+    .btn {
+      margin: 0 auto;
+    }
   }
 }
 
@@ -66,7 +87,8 @@ section#about {
     margin-bottom: 0;
   }
   h3 {
-    font-family: 'Heebo-Thin';
+    font-family: 'Heebo';
+    font-weight: 100; 
     font-size: 52px;    
     @include mobile-only {
       font-size: 42px;    
@@ -79,15 +101,32 @@ section#about {
     text-align: right;
     margin-top: -70px;
     z-index: -1;
-    font-family: 'Heebo-Medium';
+    font-weight: 500;
     p {
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+  @include mobile-only {
+    .about-quote  {
+      text-align: center;
+    }
+    .about-body {
+      text-align: left;
+      margin-top: 20px;
+      transition: all .5s ease;
+      max-height: 900px;
+      overflow: hidden;
+      &.open {
+        max-height: 1500px;
+      }
     }
   }
 }
 
 section#testimonials {
-  padding: 30px 5%;
   color: $white;
   min-height: 436px;  
   display: flex;
@@ -102,10 +141,21 @@ section#testimonials {
     text-transform: uppercase;
     letter-spacing: 5px;
   }
+  @include desktop-tablet {
+      padding: 30px 5%;
+      background-size: auto 650px !important;
+  }
+  @include mobile-only {
+    background-image: url('/uploads/images/testimonial_mobile@2x.jpg') !important;
+    background-position: 50% 0 !important;
+  }
 }
 
 section#services {
-  text-align: center;  
+  text-align: center; 
+  background: $gray url('/src/img/services-back.png') no-repeat; 
+  background-position: 0 180px !important;
+  background-size: 430px;
   .service-row {
     margin-left: -10px;
     margin-right: -10px;
@@ -138,10 +188,55 @@ section#services {
       }
     }
   }
+  @include mobile-only {
+    background-size: 260px;
+    background-position: 0 0 !important;  
+  }
 }
 
-section#contact {
+section#instagram {
+  padding: 0;
+  .row {
+    margin-left: 5px;
+    margin-right: 5px; 
+  }
+  [class^="col-"] {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .follow {
+    display: block;
+    vertical-align: center;
+    align-self: center;
+    padding-top: 5px;
+    img {
+      width: 100%;
+    }
+  }
+  img {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    align-self: center;
+  }
+  b {
+    @include center;
+    color: $white;
+    text-transform: uppercase;
+    text-align: center;
+  }
+}
 
+
+section#contact {
+  @include desktop-tablet {
+    background: url('/src/img/contact-back.png') no-repeat;
+    background-position: 100% 100%;
+    background-size: 650px;
+    padding-bottom: 130px;
+  }
+  @include mobile-only {
+    text-align: left;
+  }
 }
 
 
@@ -154,7 +249,7 @@ body,
 
 .scroller {
  // overflow-y: scroll;
-  margin-top: 70px;
+  margin-top: 60px;
   @include desktop-only {
     margin-top: 81px;
     transition: all .5s ease;
@@ -229,10 +324,4 @@ hr {
       @include center-y;
     }
   }
-}
-
-@include mobile-only {
-  section {
-    text-align: center;
-  }    
 }

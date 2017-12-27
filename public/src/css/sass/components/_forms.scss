@@ -32,9 +32,6 @@ form {
       font-weight: 500;
       color: $gray-dark;
     }
-    @include mobile-only {
-      font-size: 2rem;
-    }
   }
   input {
     margin-bottom: 15px;

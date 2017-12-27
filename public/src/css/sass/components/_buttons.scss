@@ -20,7 +20,7 @@
   @include mobile-only {
     width: 100%;
   }
-  &[type="submit"] {
+  &[type="submit"], &.btn-white {
     font-size: 14px;
     background-color: transparent;
     margin-top: 15px;

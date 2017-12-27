@@ -20,7 +20,7 @@ nav#mp-menu {
     letter-spacing: 2px;
   }
   li a:not(.btn){
-    font-family: 'Heebo-Medium';     
+    font-weight: 500;
   }
   @include desktop-tablet {
     transform: none;

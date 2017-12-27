@@ -33,9 +33,6 @@
   border-left: $size + px solid transparent;
   border-right: $size + px solid transparent;
   border-top: $size + px solid $color;
-  position: absolute;
-  right: 12px;
-  top: $top + px;
   transition: all 1s ease;
 }
 
@@ -46,9 +43,6 @@
   border-top: $size + px solid transparent;
   border-bottom: $size + px solid transparent;
   border-left: $size + px solid $color;
-  position: absolute;
-  right: 12px;
-  top: $top + px;
   transition: all 1s ease;
 }
 

@@ -1,24 +1,12 @@
-@import url("//hello.myfonts.net/count/314665");
-
-  
-@font-face {font-family: 'Heebo-Bold';src: url('../fonts/Heebo-Bold.eot');src: url('../fonts/Heebo-Bold.eot?#iefix') format('embedded-opentype'),url('../fonts/Heebo-Bold.woff2') format('woff2'),url('../fonts/Heebo-Bold.woff') format('woff'),url('../fonts/Heebo-Bold.ttf') format('truetype');}
- 
-@font-face {font-family: 'Heebo-Medium';src: url('../fonts/Heebo-Medium.eot');src: url('../fonts/Heebo-Medium.eot?#iefix') format('embedded-opentype'),url('../fonts/Heebo-Medium.woff2') format('woff2'),url('../fonts/Heebo-Medium.woff') format('woff'),url('../fonts/Heebo-Medium.ttf') format('truetype');}
-
-@font-face {font-family: 'Heebo-Regular';src: url('../fonts/Heebo-Regular.eot');src: url('../fonts/Heebo-Regular.eot?#iefix') format('embedded-opentype'),url('../fonts/Heebo-Regular.woff2') format('woff2'),url('../fonts/Heebo-Regular.woff') format('woff'),url('../fonts/Heebo-Regular.ttf') format('truetype');}
-
-@font-face {font-family: 'Heebo-Light';src: url('../fonts/Heebo-Light.eot');src: url('../fonts/Heebo-Light.eot?#iefix') format('embedded-opentype'),url('../fonts/Heebo-Light.woff2') format('woff2'),url('../fonts/Heebo-Light.woff') format('woff'),url('../fonts/Heebo-Light.ttf') format('truetype');}
-
-@font-face {font-family: 'Heebo-Thin';src: url('../fonts/Heebo-Thin.eot');src: url('../fonts/Heebo-Thin.eot?#iefix') format('embedded-opentype'),url('../fonts/Heebo-Thin.woff2') format('woff2'),url('../fonts/Heebo-Thin.woff') format('woff'),url('../fonts/Heebo-Thin.ttf') format('truetype');}
+@import url('https://fonts.googleapis.com/css?family=Heebo:100,300,500,700');
 
 html {
   font-weight: 100;
-  font: 50px 'Heebo-Light',arial, sans-serif;
+  font: 50px 'Heebo',arial, sans-serif;
 
 }
 body {
   font-size: 18px;
-  letter-spacing: 2px;
   @include mobile-only {
     font-size: 16px;
   }
@@ -26,7 +14,8 @@ body {
 h1 {
   font-size: 70px;
   line-height: 1;
-  font-family: 'Heebo-Thin';
+  font-weight: 300;
+  font-family: 'Heebo';
   margin-bottom: 38px;
   @include mobile-only {
     font-size: 42px;
@@ -36,12 +25,14 @@ h1 {
 h2 {
   font-size: 36px;
   line-height: 1.2;
-  font-family: 'Heebo-Thin';
+  font-family: 'Heebo';
+  font-weight: 100;
   margin-bottom: 35px;
   letter-spacing: 8px;
   text-transform: uppercase;  
   b {
-    font-family: 'Heebo-Medium';    
+    font-family: 'Heebo';
+    font-weight: 500;    
   }
   @include mobile-only {
     font-size: 24px;
@@ -49,7 +40,8 @@ h2 {
 }
 
 h3 {
-  font-family: 'Heebo-Bold';  
+  font-family: 'Heebo';
+  font-weight: 700;  
   @include mobile-only {
     font-size: 20px;
   }
@@ -77,12 +69,14 @@ a {
 }
 
 b {
-  font-family: 'Heebo-Bold';
+  font-family: 'Heebo';
+  font-weight: 700; 
 }
 
 p {
   line-height: 1.2;
-  font-family: 'Heebo-Light';
+  font-weight: 300;
+  font-family: 'Heebo';
   margin-bottom: 35px;
   @include mobile-only {
     line-height: 1.2;
@@ -104,7 +98,8 @@ p {
 }
 
 .text-medium {
-  font-family: 'Heebo-Medium';    
+  font-family: 'Heebo';
+  font-weight: 500;    
 }
 
 .text-purple {

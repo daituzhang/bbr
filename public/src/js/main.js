@@ -20,6 +20,12 @@ function parallax(){
           'background-position': '50% '+ newCoord + 'px'
         });
       }
+      else if(mode == 'front') {
+        newCoord = (scroll.bottom-opts.stop) * 0.15;
+        $$.css({
+          'background-position': '50% '+ newCoord + 'px'
+        });
+      }
       else if(mode == 'margin') {
         newCoord = (scroll.bottom-opts.stop) * -0.1;
         $$.css(setTransform(0, newCoord+'px')); 
@@ -62,18 +68,26 @@ function parallax(){
     $('.parallax').each(function(){
       setCss($(this),scroll, 'back');
     });
-    $('.belt').each(function(){
-      setCss($(this),scroll, 'margin');
-    });
-    $('#light').each(function(){
-      setCss($(this),scroll, 'light');
-    });
-    $('#photo').each(function(){
-      setCss($(this),scroll, 'photo');
-    });
-    $('#printer').each(function(){
-      setCss($(this),scroll, 'printer');
-    });
+  });
+}
+
+function instagram(){
+ $.ajax({
+    url: "https://igapi.ga/explore/tags/bodybyrobbie/media",
+    dataType: "jsonp",
+    data: {
+      count: 2
+    },
+    success: function(json) {
+      var i = 0;
+      while (i<3 && i < json.posts.length) {
+        var img = document.createElement("IMG");
+        img.src = json.posts[i].display_url;
+        img.className = 'col-xs-3';
+        $('#instagram .row').append(img);
+        i++;
+      }
+    }
   });
 }
 
@@ -164,11 +178,20 @@ function nav(){
   });
 }
 $(document).ready(function() {
+  var data = $('#contactForm-form').serialize();
+
+$.post('/actions/formBuilder/entry/save', data, function(response){
+    console.log(response);
+});
   $('.mobile-dropdown').click(function(e){
     $(this).toggleClass('open');
   });
+  $('.about-body-trigger').click(function(e){
+    $('.about-body').toggleClass('open');
+  });
   nav();
   slides();
+  instagram();
   if(!Modernizr.touch){
     parallax();
   }
