@@ -34,6 +34,7 @@ return array(
             'fileSystemPath' => '/var/www/bbr/public/',
             'frontEndAssets' => '/src/',
             'siteName' => 'bbr',
+            'siteUrl' => 'http://v2vw-5tdb.accessdomain.com/'
         )
     ),
 
