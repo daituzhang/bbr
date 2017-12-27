@@ -98,10 +98,10 @@
   </div>
   {% endcache %}
   {% endblock %}
-	{% block scripts_start %}{% endblock %}
-    <!--  libraries downloaded from cdn -->
-    {% cache for 3 weeks %}
-    <!-- Google Tag Manager -->
+{# 	{% block scripts_start %}{% endblock %}
+ #}    <!--  libraries downloaded from cdn -->
+{#   {% cache for 3 weeks %}
+ #}    <!-- Google Tag Manager -->
 
     <!--  end: libraries downloaded from cdn -->
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -109,6 +109,6 @@
     <script src="{{ craft.config.environmentVariables['frontEndAssets'] }}js/vendor/classie.js"></script>
     <script src="{{ craft.config.environmentVariables['frontEndAssets'] }}js/vendor/jquery.mobile.custom.min.js"></script>
   <script src="{{ craft.config.environmentVariables['frontEndAssets'] }}js/main.js"></script>
-  {% endcache %}
-</body>
+{#   {% endcache %}
+ #}</body>
 </html>

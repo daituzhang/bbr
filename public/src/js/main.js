@@ -178,11 +178,6 @@ function nav(){
   });
 }
 $(document).ready(function() {
-  var data = $('#contactForm-form').serialize();
-
-$.post('/actions/formBuilder/entry/save', data, function(response){
-    console.log(response);
-});
   $('.mobile-dropdown').click(function(e){
     $(this).toggleClass('open');
   });

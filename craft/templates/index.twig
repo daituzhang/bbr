@@ -2,7 +2,7 @@
 
 
 {% block content %}
-{% cache for 3 weeks %}
+{# {% cache for 3 weeks %} #}
   {% set backgroundImage = entry.heroBackgroundImage|length == 0 ? "" : " background: url(" ~  entry.heroBackgroundImage|first.url ~ ") no-repeat #000; background-size: cover;" %}
   <section id="hero" class="parallax" style="{{ backgroundImage }}">
     <div class="container">
@@ -98,6 +98,6 @@
         </div>
     </div>
   </section>
-{% endcache %}
-
+{# {% endcache %}
+ #}
 {% endblock %}

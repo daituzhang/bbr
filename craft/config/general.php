@@ -12,6 +12,8 @@ return array(
             'fileSystemPath' => '/vagrant/public/',
             'frontEndAssets' => '/src/',
             'siteName' => 'bbr',
+            'cache' => false,
+            'siteUrl' => 'http://localhost:8080'
         )
     ),
 

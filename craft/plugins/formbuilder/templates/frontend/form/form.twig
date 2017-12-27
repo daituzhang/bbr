@@ -48,12 +48,10 @@
             {{ "Submit Message" |t }}
         {% endif %}
     </button>
-<h2>before enable flag</h2>
-{{ form.options |inspect }}
+
 </form>
+
 {% if settings.ajax.enabled %}
-    <h2>after enable flag</h2>
-{{ form.options |inspect }}
     {% includeJsResource 'formbuilder/js/ajaxsubmit.js' %}
     {% includejs %}
         new AjaxForm('#{{ id }}').init();
