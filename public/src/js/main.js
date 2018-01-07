@@ -73,20 +73,18 @@ function parallax(){
 
 function instagram(){
  $.ajax({
-    url: "https://igapi.ga/explore/tags/bodybyrobbie/media",
+    url: "https://igapi.ga/bodybyrobbie/media",
     dataType: "jsonp",
     data: {
-      count: 2
+      count: 3
     },
     success: function(json) {
-      var i = 0;
-      while (i<3 && i < json.posts.length) {
+      $.each(json.posts, function(i, item){
         var img = document.createElement("IMG");
-        img.src = json.posts[i].display_url;
+        img.src = item.display_url;
         img.className = 'col-xs-3';
         $('#instagram .row').append(img);
-        i++;
-      }
+      });
     }
   });
 }

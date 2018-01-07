@@ -23,4 +23,17 @@
 	<h1>Page not found</h1>
 
 	<p>What’s worse, a hilarious 404 page can’t be found either.</p>
+
+ {% for product in craft.shopify.getProducts({ fields: 'title,variants,images', limit: 5 }) %}
+    <div class="product">
+        <h2>{{ product.title }}</h2>
+                  {{ dump(product) }}
+
+        <ul>
+            {% for variant in product.variants %}
+                <li>{{ variant.title }} - ${{ variant.price }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endfor %}
 {% endblock %}
