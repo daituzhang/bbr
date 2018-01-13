@@ -156,7 +156,6 @@ function modal(){
     $('.modal').addClass('open');
   });
   $('.close').click(function(e){
-    return;
     $('.modal.open').removeClass('open');
   });
   $('.modal').click(function(e){
