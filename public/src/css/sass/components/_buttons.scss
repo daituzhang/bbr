@@ -21,7 +21,7 @@
   @include mobile-only {
     width: 100%;
   }
-  &[type="submit"], &.btn-white {
+   &.btn-white {
     font-size: 14px;
     background-color: transparent;
     margin-top: 15px;
@@ -31,4 +31,12 @@
       color: $white;
     }
   }
+}
+#contactForm-form button[type="submit"] {
+  @extend button.btn-white;
+}
+
+#freeSessionForm-form button[type="submit"] {
+  min-width: 35px;
+  margin: 0 auto;
 }

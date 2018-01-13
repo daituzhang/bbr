@@ -9,7 +9,7 @@
       <div class="row middle-xs">
         <div class="col-xs-6">
           <h1>{{entry.heroTitle}}</h1>
-          <a href="" class="btn btn-white"><b>View Workouts</b></a>
+          <a href="#services" class="btn btn-white"><b>View Workouts</b></a>
         </div>
       </div>
     </div>    
@@ -62,13 +62,13 @@
       <div class="row service-row">
         {% for child in entry.servicesCards %}
         <div class="col-xs-6 service-container">
-          <a class="service mobile-dropdown">
+          <div class="service mobile-dropdown modal-trigger">
             <h4><b>{{ child.title }}</b></h4>
             <div class="dropdown-inner">
-              <p>{{child.body}}</p>
-              <p class="text-upper"><b>Book Now</b></p>
+              {{child.body}}
+              <p class="text-upper"><b>Request Session</b></p>
             </div>
-          </a>
+          </div>
         </div>
         {% endfor %}  
       </div>
@@ -100,6 +100,15 @@
       </div>
     </div>  
   </section>
+  <div class="modal">
+    <section class="modal-body" id="free-session">
+      <span class="icon-close close"></span>
+      <h2>{{entry.titleText}}</h2>
+      <h4>{{entry.subTitleText}}</h4>
+      {{entry.body}}
+      {{ craft.formBuilder.form("freeSessionForm") }}
+    </div>
+  </div>
 {# {% endcache %}
  #}
 {% endblock %}

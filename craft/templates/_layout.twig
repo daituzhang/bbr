@@ -61,7 +61,7 @@
             <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#workouts">Workouts</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a class="btn" href="#contact">Book Online</a></li>
+            <li><a class="btn" href="#services">Book Online</a></li>
           {% endblock %}
           </ul>
         </div>
@@ -69,7 +69,9 @@
     </div>
   </nav>
 {% endcache %}
+{% block scrollerClass %}
   <div class="scroller"><!-- this is for emulating position fixed of the nav -->
+{% endblock %}
     <div class="scroller-inner">
     	{% block content %}
       {% endblock %}

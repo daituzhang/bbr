@@ -1,0 +1,16 @@
+{% extends "_layout" %}
+
+{% block scrollerClass %}
+  <div class="scroller full-height"><!-- this is for emulating position fixed of the nav -->
+{% endblock %}
+
+{% block content %}
+{# {% cache for 3 weeks %} #}
+<section id="thank-you">
+  <div>
+    {{entry.body}}
+  </div>
+</section>
+{# {% endcache %}
+ #}
+{% endblock %}

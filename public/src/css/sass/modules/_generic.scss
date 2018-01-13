@@ -179,7 +179,11 @@ section#services {
     font-size: 14px;
     line-height: 1.7;
     color: #868686;
-
+    cursor: pointer;
+    a {
+      display: inline;
+      color: $purple;
+    }
     @include mobile-only {
       padding: 20px;
     }
@@ -191,6 +195,7 @@ section#services {
       transition: all .5s ease;      
     }
     &:hover {
+      background-color: $white;
       box-shadow: 0px 5px 20px 1px $purple;
       b {
         color: $purple;
@@ -248,12 +253,51 @@ section#contact {
   }
 }
 
+section#free-session {
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 500;
+  h2 {
+    color: $purple;
+    font-weight: 600;
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  h4 {
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #868686;
+    text-transform: uppercase;
+  }
+}
 
+section#thank-you {
+  padding: 30px;
+  min-height: calc(100vh - 90px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 52px;
+  font-weight: 100;
+  h1 {
+    font-size: 36px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  }
+}
 
 html, 
 body, 
 .scroller {
   height: 100%;
+  &.full-height {
+    margin-top: 0;
+    height: 100vh;
+  }
 }
 
 .scroller {

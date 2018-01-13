@@ -162,7 +162,7 @@ webpackJsonp([0],[
 	    $('.hero-video').get(0).pause();
 	  });
 	}
-	
+
 	function nav(){
 	  var menuHeight = $('#mp-menu').height();
 	  $('#trigger').click(function(e){

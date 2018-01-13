@@ -151,6 +151,21 @@ function slides(){
   });
 }
 
+function modal(){
+  $('.modal-trigger').click(function(e){
+    $('.modal').addClass('open');
+  });
+  $('.close').click(function(e){
+    $('.modal.open').removeClass('open');
+  });
+  $('.modal').click(function(e){
+    $('.modal.open').removeClass('open');
+  });
+  $('.modal-body').click(function(e){
+    e.preventDefault();
+  });
+}
+
 function nav(){
   var menuHeight = $('#mp-menu').height();
   $('#trigger').click(function(e){
@@ -185,6 +200,7 @@ $(document).ready(function() {
   nav();
   slides();
   instagram();
+  modal();
   if(!Modernizr.touch){
     parallax();
   }
