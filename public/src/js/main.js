@@ -156,13 +156,13 @@ function modal(){
     $('.modal').addClass('open');
   });
   $('.close').click(function(e){
+    return;
     $('.modal.open').removeClass('open');
   });
   $('.modal').click(function(e){
+    if (e.target !== this)
+    return
     $('.modal.open').removeClass('open');
-  });
-  $('.modal-body').click(function(e){
-    e.preventDefault();
   });
 }
 
