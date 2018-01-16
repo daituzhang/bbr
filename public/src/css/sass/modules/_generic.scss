@@ -60,7 +60,7 @@ section#hero {
   min-height: 0;
   overflow: hidden;
   .btn {
-    max-width: 200px;
+    max-width: 280px;
   }
   .row {
     min-height: 500px;    
@@ -161,6 +161,9 @@ section#services {
   background: $gray url('/src/img/services-back.png') no-repeat; 
   background-position: 0 180px !important;
   background-size: 430px;
+  .btn {
+    margin-bottom: 40px;
+  }
   .service-row {
     margin-left: -10px;
     margin-right: -10px;
@@ -180,9 +183,15 @@ section#services {
     line-height: 1.7;
     color: #868686;
     cursor: pointer;
-    a {
-      display: inline;
-      color: $purple;
+    // a {
+    //   display: inline;
+    //   color: $purple;
+    // }
+    .btn {
+      padding: 5px 10px;
+      &:hover b{
+        color: $white;
+      }
     }
     @include mobile-only {
       padding: 20px;

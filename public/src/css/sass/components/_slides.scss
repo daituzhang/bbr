@@ -16,6 +16,15 @@
     &.arrow-right {
       right: 100px;
     }
+    @include mobile-only {
+      font-size: 32px;
+      &.arrow-left {
+        left: 0;
+      }
+      &.arrow-right {
+        right: 0;
+      }
+    }
   }
   .index {
     @include center-x;

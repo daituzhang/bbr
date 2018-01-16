@@ -265,7 +265,7 @@ p {
   font-weight: 700;
   border: 3px solid #2e3192;
   padding: 10px 26px;
-  display: block;
+  display: inline-block;
   color: #FFF;
   text-decoration: none;
   max-width: 100%;
@@ -618,6 +618,20 @@ form {
       left: 100px; }
     .slides-container .arrow.arrow-right {
       right: 100px; }
+    @media only screen and (max-width: 760px) and (min-device-width: 1025px) {
+      .slides-container .arrow {
+        font-size: 32px; }
+        .slides-container .arrow.arrow-left {
+          left: 0; }
+        .slides-container .arrow.arrow-right {
+          right: 0; } }
+    @media only screen and (max-device-width: 760px) {
+      .slides-container .arrow {
+        font-size: 32px; }
+        .slides-container .arrow.arrow-left {
+          left: 0; }
+        .slides-container .arrow.arrow-right {
+          right: 0; } }
   .slides-container .index {
     left: 50%;
     position: absolute;
@@ -837,7 +851,7 @@ section#hero {
   min-height: 0;
   overflow: hidden; }
   section#hero .btn {
-    max-width: 200px; }
+    max-width: 280px; }
   section#hero .row {
     min-height: 500px; }
   @media only screen and (min-width: 761px) and (min-device-width: 761px) {
@@ -958,6 +972,8 @@ section#services {
   background: #f2f2f2 url("/src/img/services-back.png") no-repeat;
   background-position: 0 180px !important;
   background-size: 430px; }
+  section#services .btn {
+    margin-bottom: 40px; }
   section#services .service-row {
     margin-left: -10px;
     margin-right: -10px; }
@@ -977,9 +993,10 @@ section#services {
     cursor: pointer;
     -webkit-transition: all .5s ease;
     transition: all .5s ease; }
-    section#services .service a {
-      display: inline;
-      color: #2e3192; }
+    section#services .service .btn {
+      padding: 5px 10px; }
+      section#services .service .btn:hover b {
+        color: #FFF; }
     @media only screen and (max-width: 760px) and (min-device-width: 1025px) {
       section#services .service {
         padding: 20px; } }

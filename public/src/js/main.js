@@ -177,6 +177,7 @@ function nav(){
     menuHeight = $('.mobile-top').height();
   });
   $('a[href*="#"]:not([href="#"])').click(function() {
+    console.log(location);
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
       var target = $(this.hash);
       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
@@ -186,6 +187,16 @@ function nav(){
         }, 1000);
         return false;
       }
+    }
+  });
+  $('div[href*="#"]').click(function() {
+    var target = $($(this).attr('href'));
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top - menuHeight
+      }, 1000);
+      return false;
     }
   });
 }
