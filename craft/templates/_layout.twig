@@ -39,32 +39,20 @@
 <body>
 {% cache for 3 weeks %}
   <nav id="mp-menu" class="mp-menu">
-    {# <div class="mp-level">
-      <div class="mobile-top text-white">
-        {% block mobileLogo %}
-        <a href="#hero"><span class="mobile-logo icon-icons_logo_horizontal"></span></a>
+    <div class="row middle-xs">
+      <div class="col-xs-2">
+        <a href="/"><img src="{{siteInfo.logo|first.url}}" alt="Body By Robbie"></a>
+      </div>
+      <div class="col-xs-10">
+        <ul>
+          {% block nav %}
+          <li><a href="#about">About</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#services">Workouts</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a class="btn modal-trigger">FREE SESSION</a></li>
         {% endblock %}
-        <a href="#" id="trigger" class="hamburger hamburger--collapse menu-trigger">
-          <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
-          </span>
-        </a>
-      </div> #}
-      <div class="row middle-xs">
-        <div class="col-xs-2">
-          <a href="/"><img src="{{siteInfo.logo|first.url}}" alt="Body By Robbie"></a>
-        </div>
-        <div class="col-xs-10">
-          <ul>
-            {% block nav %}
-            <li><a href="#about">About</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#services">Workouts</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a class="btn modal-trigger">FREE SESSION</a></li>
-          {% endblock %}
-          </ul>
-        </div>
+        </ul>
       </div>
     </div>
   </nav>
@@ -99,10 +87,10 @@
   </div>
   {% endcache %}
   {% endblock %}
-{# 	{% block scripts_start %}{% endblock %}
- #}    <!--  libraries downloaded from cdn -->
-{#   {% cache for 3 weeks %}
- #}    <!-- Google Tag Manager -->
+	{% block scripts_start %}{% endblock %}
+    <!--  libraries downloaded from cdn -->
+  {% cache for 3 weeks %}
+    <!-- Google Tag Manager -->
 
     <!--  end: libraries downloaded from cdn -->
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -110,6 +98,6 @@
     <script src="{{ craft.config.environmentVariables['frontEndAssets'] }}js/vendor/classie.js"></script>
     <script src="{{ craft.config.environmentVariables['frontEndAssets'] }}js/vendor/jquery.mobile.custom.min.js"></script>
   <script src="{{ craft.config.environmentVariables['frontEndAssets'] }}js/main.js"></script>
-{#   {% endcache %}
- #}</body>
+  {% endcache %}
+</body>
 </html>

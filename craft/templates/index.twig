@@ -2,7 +2,7 @@
 
 
 {% block content %}
-{# {% cache for 3 weeks %} #}
+{% cache for 3 weeks %}
   {% set backgroundImage = entry.heroBackgroundImage|length == 0 ? "" : " background: url(" ~  entry.heroBackgroundImage|first.url ~ ") no-repeat #000; background-size: cover;" %}
   <section id="hero" class="parallax" style="{{ backgroundImage }}">
     <div class="container">
@@ -13,11 +13,6 @@
         </div>
       </div>
     </div>    
-    {# <div class="video-close hamburger hamburger--collapse is-active">
-      <span class="hamburger-box">
-        <span class="hamburger-inner"></span>
-      </span>
-    </div> #}
   </section>
   <section id="about">
     <div class="container">
@@ -43,7 +38,6 @@
    <div class="slides-container">
       <span class="arrow arrow-left icon-icons_navigation_arrow_left"></span>
       {% for child in entry.testimonials %}
-        {# {% set backgroundImage = slide.backgroundImage|length == 0 ? "" : " background: url(" ~  block.backgroundImage|first.url ~ ") no-repeat;   " %} #}
         <div class="slide{% if loop.first  %} active{% endif %}" >
           <div class="slide-container">
             <p><b>What my clients are saying...</b></p>
@@ -114,6 +108,6 @@
       {{ craft.formBuilder.form("freeSessionForm") }}
     </div>
   </div>
-{# {% endcache %}
- #}
+{% endcache %}
+
 {% endblock %}

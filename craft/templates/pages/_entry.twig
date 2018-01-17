@@ -5,12 +5,12 @@
 {% endblock %}
 
 {% block content %}
-{# {% cache for 3 weeks %} #}
+{% cache for 3 weeks %}
 <section id="thank-you">
   <div>
     {{entry.body}}
   </div>
 </section>
-{# {% endcache %}
- #}
+{% endcache %}
+
 {% endblock %}
