@@ -856,7 +856,7 @@ section#hero {
     min-height: 500px; }
   @media only screen and (min-width: 761px) and (min-device-width: 761px) {
     section#hero {
-      background-size: auto 970px; } }
+      background-size: auto 970px !important; } }
   @media only screen and (max-width: 760px) and (min-device-width: 1025px) {
     section#hero {
       background-image: url("/uploads/images/bbr_hero_mobile@2x.jpg") !important;

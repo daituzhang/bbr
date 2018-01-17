@@ -66,7 +66,7 @@ section#hero {
     min-height: 500px;    
   }
   @include desktop-tablet {
-    background-size: auto 970px;
+    background-size: auto 970px !important;
   }
   @include mobile-only {
     background-image: url('/uploads/images/bbr_hero_mobile@2x.jpg') !important;
