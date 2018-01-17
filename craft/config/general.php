@@ -38,6 +38,27 @@ return array(
         )
     ),
 
+    '72.10.32.174' => array(
+        'environmentVariables' => array(
+            'env' => 'dev',
+            'fileSystemPath' => '/var/www/bbr/public/',
+            'frontEndAssets' => '/src/',
+            'siteName' => 'bbr',
+            'siteUrl' => 'http://72.10.32.174/'
+        )
+    ),
+
+
+    'bodybyrobbie.com' => array(
+        'environmentVariables' => array(
+            'env' => 'dev',
+            'fileSystemPath' => '/var/www/bbr/public/',
+            'frontEndAssets' => '/src/',
+            'siteName' => 'bbr',
+            'siteUrl' => 'http://bodybyrobbie.com/'
+        )
+    ),
+
     'eventsbythelab.com' => array(
         'devMode' => true,
         'environmentVariables' => array(
