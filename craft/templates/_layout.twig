@@ -42,17 +42,13 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-KXRV4TT');</script>
   <!-- End Google Tag Manager -->
-
-  Additionally, paste this code immediately after the opening <body> tag:
-
+  </head>
+<body>
+{% cache for 3 weeks %}
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KXRV4TT"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-  </head>
-<body>
-{% cache for 3 weeks %}
-
   <nav id="mp-menu" class="mp-menu">
     <div class="row middle-xs">
       <div class="col-xs-2">
@@ -105,9 +101,6 @@
 	{% block scripts_start %}{% endblock %}
     <!--  libraries downloaded from cdn -->
   {% cache for 3 weeks %}
-    <!-- Google Tag Manager -->
-
-    <!--  end: libraries downloaded from cdn -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script src="{{ craft.config.environmentVariables['frontEndAssets'] }}js/vendor/classie.js"></script>
