@@ -113,7 +113,11 @@
       <h2>{{entry.titleText}}</h2>
       <h4>{{entry.subTitleText}}</h4>
       {{entry.body}}
-      {{ craft.formBuilder.form("freeSessionForm") }}
+      {{ craft.formBuilder.form({
+          formHandle: 'freeSessionForm', 
+          submission: submission is defined ? submission : null
+        }) 
+      }}
     </div>
   </div>
 {% endcache %}
