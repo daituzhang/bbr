@@ -72,16 +72,18 @@ function parallax(){
 }
 
 function instagram(){
+  console.log('sdfk');
  $.ajax({
-    url: "https://igapi.ga/bodybyrobbie/media",
-    dataType: "jsonp",
+    url: "/get-instagram-feeds.php",
     data: {
       count: 3
     },
     success: function(json) {
-      $.each(json.posts, function(i, item){
+      const data = JSON.parse(json).data;
+      $.each(data, function(i, item){
+        console.log(item);
         var img = document.createElement("IMG");
-        img.src = item.display_url;
+        img.src = item.images.standard_resolution.url;
         img.className = 'col-xs-3';
         $('#instagram .row').append(img);
       });
