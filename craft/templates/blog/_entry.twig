@@ -41,7 +41,7 @@
       <p>
         <strong>Tags: </strong> 
         {% for tag in entry.instaBlogTags %}
-        <a href="/blog/tag/{{ tag.name|split(' ')|join('-')|lower }}">{{ tag.name }}</a>
+        <a href="/blog/tag/{{ tag.title|split(' ')|join('-')|lower }}">{{ tag.name }}</a>
         {% if not loop.last %}, {% endif %}
         {% endfor %}
       </p>
