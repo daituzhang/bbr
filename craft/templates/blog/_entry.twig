@@ -4,83 +4,65 @@
 {% set next = entry.getNext(params) %}
 {% set prev = entry.getPrev(params) %}
 
-{% block content %}
-  <section id="instablog">
-  <header class="center">
-    <h1>Blog</h1>  
-  </header>
+{% block blogBody %}
+    <p>
+      {% if prev %}
+      <a href="{{ prev.url }}"><< Previous</a>
+      {% endif %}        
+      {% if next %}
+      <a href="{{ next.url }}">Next >></a>
+      {% endif %}        
+    </p> 
 
-    <article itemscope itemtype="http://schema.org/Article">
+  <article itemscope itemtype="http://schema.org/Article" class="row">
       <header>
-        <h1 itemprop="name">{{ entry.title }}</h1>
+        <h3 class="text-purple"><a href="/blog">BACK TO BLOG</a></h3>
+        <hr>
         <p>
-          <span itemprop="author">
-            {% if entry.author.photoUrl|length %}
-              <img src="{{ entry.author.photoUrl }}" alt="{{ entry.author.fullName }}" width="100"><br>
-            {% endif %}
-            <a href="/blog/author/{{ entry.author.username }}" rel="author">{{ entry.author.fullName }}</a>
-          </span>
-          <br>
-          <span itemprop="datePublished">{{ entry.postDate.format('F d, Y') }}</span>       
+          <span itemprop="datePublished" class="date-published"><strong>{{ entry.postDate.format('F d, Y') }}</strong></span>       
         </p>
+        <h1 itemprop="name">{{ entry.title }}</h1>
       </header>
-
-      <div itemprop="articleBody">
+      <div itemprop="articleBody" class="article-body">
+        {% if entry.instaBlogImage | length %}
+          <img class="featured-image" src="{{ entry.instaBlogImage | first.url }}">
+        {% endif %}
         {{ entry.instaBlogBody }}
       </div>
-
-      <p>
-        <strong>Categories: </strong>
-        <span itemprop="articleSection">
-        {% for category in entry.instaBlogCategories %}
-        <a href="/blog/category/{{ category.slug }}">{{ category }}</a>
-        {% if not loop.last %}, {% endif %}
-        {% endfor %}
-        </span>   
-      </p>
-      <p>
-        <strong>Tags: </strong> 
-        {% for tag in entry.instaBlogTags %}
-        <a href="/blog/tag/{{ tag.title|split(' ')|join('-')|lower }}">{{ tag.name }}</a>
-        {% if not loop.last %}, {% endif %}
-        {% endfor %}
-      </p>
-      
-      <p>
-        {% if prev %}
-        <a href="{{ prev.url }}"><< Previous</a>
-        {% endif %}        
-        {% if next %}
-        <a href="{{ next.url }}">Next >></a>
-        {% endif %}        
-      </p>
-
+      <hr>
       <footer>
-        {% include 'blog/_share.twig' %}
+        <p class="text-purple"><strong>For more eye-opening tips, follow me on social. </strong></p>
+        <ul>
+          <li class="social"><a class="icon-instagram" target="_blank" href="{{ siteInfo.facebook }}"></a></li>
+          <li class="social"><a class="icon-facebook" target="_blank" href="{{ siteInfo.youtube }}"></a></li>
+          <li class="social"><a class="icon-twitter" target="_blank" href="{{ siteInfo.instagram }}"></a></li>
+          <li class="social"><a class="icon-linkedin" target="_blank" href="{{ siteInfo.instagram }}"></a></li>
+        </ul>
       </footer>
-    </article>
-
-
-    {% if craft.instaBlog.settings.disqus|length %}
-      <aside>
-        <div id="disqus_thread"></div>
-        <script type="text/javascript">
-            var disqus_shortname = '{{ craft.instaBlog.settings.disqus }}'; // required
-            var disqus_identifier = '{{ entry.section }}-{{ entry.id }}';
-            (function() {
-                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a> 
-      </aside>
-    {% endif %}
-
-  {% include 'blog/_aside.twig' %}
-
-  </section>
+  </article>
+{% endblock %}
+{% block blogAside %}
+  <aside>
+    <p>
+      <strong>AUTHOR</strong>
+      <br>
+      <span class="text-purple" itemprop="author">
+        <a href="/blog/author/{{ entry.author.username }}" rel="author">{{ entry.author.fullName }}</a>
+      </span>
+    </p>
+    <hr>
+    <p>
+      <strong>Tags: </strong>
+      <br>
+      {% for tag in entry.instaBlogTags %}
+      <a class="text-purple" href="/blog/tag/{{ tag.title|split(' ')|join('-')|lower }}">{{ tag.name }}</a>
+      {% if not loop.last %}, {% endif %}
+      {% endfor %}
+    </p>
+    <hr>
+    {% include 'blog/_share.twig' %}
+    <hr>
+    {% include 'blog/_aside.twig' %}
+  </aside>
 {% endblock %}
 

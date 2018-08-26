@@ -146,78 +146,6 @@ p {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-.icon-facebook:before {
-  content: '\e800'; }
-
-/* '' */
-.icon-yelp:before {
-  content: '\e801'; }
-
-/* '' */
-.icon-icons_footer_fb:before {
-  content: '\e802'; }
-
-/* '' */
-.icon-left-open-big:before {
-  content: '\e803'; }
-
-/* '' */
-.icon-icons_footer_insta:before {
-  content: '\e804'; }
-
-/* '' */
-.icon-icons_footer_pinterest:before {
-  content: '\e805'; }
-
-/* '' */
-.icon-icons_footer_twitter:before {
-  content: '\e806'; }
-
-/* '' */
-.icon-icons_logo_veritcal:before {
-  content: '\e807'; }
-
-/* '' */
-.icon-right-open-big:before {
-  content: '\e808'; }
-
-/* '' */
-.icon-publish:before {
-  content: '\e809'; }
-
-/* '' */
-.icon-window:before {
-  content: '\e80a'; }
-
-/* '' */
-.icon-arrow-combo:before {
-  content: '\e80b'; }
-
-/* '' */
-.icon-down-circled:before {
-  content: '\e80c'; }
-
-/* '' */
-.icon-up-open-big:before {
-  content: '\e80d'; }
-
-/* '' */
-.icon-down:before {
-  content: '\e80e'; }
-
-/* '' */
-.icon-left-open-big-1:before {
-  content: '\e80f'; }
-
-/* '' */
-.icon-icons_navigation_circle_closed:before {
-  content: '\e810'; }
-
-/* '' */
-.icon-icons_navigation_circle_open:before {
-  content: '\e811'; }
-
-/* '' */
 .icon-icons_navigation_arrow_left:before {
   content: '\e812'; }
 
@@ -226,14 +154,38 @@ p {
   content: '\e813'; }
 
 /* '' */
-.icon-icons_logo_horizontal:before {
-  content: '\e814'; }
+.icon-star:before {
+  content: '\e816'; }
 
-/* '' */
-.icon-play-circled:before {
-  content: '\e815'; }
+/* '' */
+.icon-star-empty:before {
+  content: '\e817'; }
 
-/* '' */
+/* '' */
+.icon-google-plus:before {
+  content: '\e818'; }
+
+/* '' */
+.icon-instagram:before {
+  content: '\e819'; }
+
+/* '' */
+.icon-twitter:before {
+  content: '\f099'; }
+
+/* '' */
+.icon-facebook:before {
+  content: '\f09a'; }
+
+/* '' */
+.icon-mail-alt:before {
+  content: '\f0e0'; }
+
+/* '' */
+.icon-linkedin:before {
+  content: '\f0e1'; }
+
+/* '' */
 .icon-close {
   line-height: 0; }
 
@@ -724,7 +676,7 @@ form {
     -webkit-transform: translateX(100%);
     transform: translateX(100%); } }
 
-footer {
+footer#page-footer {
   font-size: 14px;
   padding: 34px 5%;
   font-family: 'Heebo';
@@ -732,25 +684,25 @@ footer {
   color: #dbdbdb;
   line-height: 22px;
   background-color: #2e3192; }
-  footer li {
+  footer#page-footer li {
     list-style: none;
     display: inline-block;
     padding: 0 10px; }
-    footer li a {
+    footer#page-footer li a {
       -webkit-transition: all .5s ease;
       transition: all .5s ease;
       text-decoration: none; }
-      footer li a:hover {
+      footer#page-footer li a:hover {
         color: #FFF; }
   @media only screen and (max-width: 760px) and (min-device-width: 1025px) {
-    footer {
+    footer#page-footer {
       text-align: center; }
-      footer .copy-right {
+      footer#page-footer .copy-right {
         margin-top: 30px; } }
   @media only screen and (max-device-width: 760px) {
-    footer {
+    footer#page-footer {
       text-align: center; }
-      footer .copy-right {
+      footer#page-footer .copy-right {
         margin-top: 30px; } }
 
 section {
@@ -1305,6 +1257,42 @@ nav#mp-menu {
 @media only screen and (min-width: 1025px) and (min-device-width: 1025px) {
   #trigger {
     display: none; } }
+
+#instablog a {
+  color: #2e3192;
+  text-decoration: none; }
+  #instablog a:hover {
+    text-decoration: underline; }
+
+#instablog article {
+  font-size: 18px; }
+  #instablog article header {
+    font-size: 16px; }
+  #instablog article h1 {
+    font-size: 52px; }
+  #instablog article footer {
+    font-size: 14px;
+    text-transform: uppercase; }
+    #instablog article footer li {
+      font-size: 40px;
+      list-style: none;
+      display: inline-block;
+      padding: 0 10px; }
+      #instablog article footer li a {
+        color: #9f9f9f;
+        -webkit-transition: all .5s ease;
+        transition: all .5s ease;
+        text-decoration: none; }
+        #instablog article footer li a:hover {
+          color: #2e3192; }
+  #instablog article .article-body a {
+    text-decoration: underline; }
+
+#instablog hr {
+  margin: 25px 0; }
+
+#instablog .date-published {
+  text-transform: uppercase; }
 
 #galleries {
   padding: 0;

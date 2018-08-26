@@ -7,7 +7,7 @@
   </header>
 
   {% paginate craft.entries.section('instaBlog').limit(10) as entries %}
-    {% include 'blog/_entries.twig' %}
+    {% include 'blog/_home-entries.twig' %}
 
   {% include 'blog/_aside.twig' %}
 </section>

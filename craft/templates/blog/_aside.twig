@@ -4,7 +4,7 @@
 {% endif %}
 
     <aside>
-      <h3>
+      {# <h3>
         <a href="/blog">Blog</a>
       </h3>
       <h4>
@@ -30,10 +30,10 @@
       {% for tag in tags %}
         <li><a href="/blog/tag/{{ tag.name|split(' ')|join('-')|lower }}">{{ tag.name }}</a>
       {% endfor %}          
-      </ul>
+      </ul> #}
 
       <h4>Categories</h4>
-      <ul>
+      <ul class="text-purple">
         {% nav category in craft.categories.group('instaBlogCategories') %}
           <li>
             <a href="{{ category.url }}">{{ category.title }}</a>
@@ -46,7 +46,7 @@
         {% endnav %}
       </ul>
 
-      <h4>Follow Us</h4>
+      {# <h4>Follow Us</h4>
       {% if craft.instaBlog.settings.facebook|length %}
         <a class="fa fa-facebook-square fa-2" href="{{ craft.instaBlog.settings.facebook }}"></a>
       {% endif %}
@@ -58,5 +58,5 @@
       {% endif %}
       {% if craft.instaBlog.settings.linkedin|length %}
         <a class="fa fa-linkedin-square fa-2" href="{{ craft.instaBlog.settings.linkedin }}"></a>
-      {% endif %}
+      {% endif %} #}
     </aside>
