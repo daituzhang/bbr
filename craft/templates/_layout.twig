@@ -51,17 +51,18 @@
   <!-- End Google Tag Manager (noscript) -->
   <nav id="mp-menu" class="mp-menu">
     <div class="row middle-xs">
-      <div class="col-xs-2">
+      <div class="col-sm-2 col-xs-6 xs-same">
         <a href="/"><img src="{{siteInfo.logo|first.url}}" alt="Body By Robbie"></a>
       </div>
-      <div class="col-xs-10">
+      <div class="col-sm-10 col-xs-6 xs-same">
         <ul>
-          {% block nav %}
-          <li><a href="#about">About</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#services">Workouts</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a class="btn modal-trigger">FREE SESSION</a></li>
+        {% block nav %}
+          <li class="desktop-tablet-only"><a href="#about">About</a></li>
+          <li class="desktop-tablet-only"><a href="#testimonials">Testimonials</a></li>
+          <li class="desktop-tablet-only"><a href="#services">Workouts</a></li>
+          <li class="desktop-tablet-only"><a href="#contact">Contact</a></li>
+          <li class="text-right"><a href="/blog">Blog</a></li>
+          <li class="desktop-tablet-only"><a class="btn modal-trigger">FREE SESSION</a></li>
         {% endblock %}
         </ul>
       </div>

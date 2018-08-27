@@ -3,7 +3,6 @@
   {% set query = "" %}
 {% endif %}
 
-    <aside>
       {# <h3>
         <a href="/blog">Blog</a>
       </h3>
@@ -13,15 +12,6 @@
       <h4>
         <a href="/blog/author">Authors</a>
       </h4>
-      <form action="/blog/search">
-        <label for="search">
-          <h4>Search</h4>
-        </label>
-        <div>
-          <input type="text" name="q" placeholder="Search" value="{{ query }}" tabindex="1">
-          <button type="submit"><span class="fa fa-search"></span></button>
-        </div>
-      </form>
       
       <h4>Popular Tags</h4>
       {% set allEntries = craft.entries.section('instaBlog').limit(null) %}
@@ -31,8 +21,7 @@
         <li><a href="/blog/tag/{{ tag.name|split(' ')|join('-')|lower }}">{{ tag.name }}</a>
       {% endfor %}          
       </ul> #}
-
-      <h4>Categories</h4>
+      <h4 class="text-wide">CATEGORIES</h4>
       <ul class="text-purple">
         {% nav category in craft.categories.group('instaBlogCategories') %}
           <li>

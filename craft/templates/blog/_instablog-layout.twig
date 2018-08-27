@@ -1,22 +1,61 @@
 {% extends "_layout" %}
-
+{% block nav %}
+  <li class="desktop-tablet-only"><a href="/#about">About</a></li>
+  <li class="desktop-tablet-only"><a href="/#testimonials">Testimonials</a></li>
+  <li class="desktop-tablet-only"><a href="/#services">Workouts</a></li>
+  <li class="desktop-tablet-only"><a href="/#contact">Contact</a></li>
+  <li class="text-right"><a href="/blog">Blog</a></li>
+  <li class="desktop-tablet-only"><a class="btn modal-trigger">FREE SESSION</a></li>
+{% endblock %}
 {% block content %}
+  {% block blogHeader %}
+  {% set backgroundImage = blog.blogHeaderImage|length == 0 ? "" : " background: url(" ~  blog.blogHeaderImage|first.url ~ ") no-repeat #000; background-size: cover; background-position: 50% 50%" %}
+  <section class="blog-header blog-entry-header center" style="{{ backgroundImage }}">
+    <ul class="breadcrumb">
+      <li><a href="/">Home</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li>Search Results</li>
+    </ul>
+    <h1>Search Results</h1>
+  </section>
+  {% endblock %}
   <section id="instablog">
-    <header class="center">
-    {% block blogHeader %}
-        <h1>Blog</h1> 
-
-    {% endblock %}
-    </header>
     <div class="row">
       <div class="col-xs-9">
         {% block blogBody %}
         {% endblock %}
       </div>
       <div class="col-xs-3">
-        {% block blogAside %}
-          {% include 'blog/_aside.twig' %}
-        {% endblock %}
+        <aside>
+          {% if query is defined %}
+          {% else %}
+            {% set query = "" %}
+          {% endif %}
+          <form action="/blog/search">
+            <label for="search">
+              <h4>Search the blog</h4>
+            </label>
+            <div>
+              <input class="blog-input" type="text" name="q" placeholder="Search the blog" value="{{ query }}" tabindex="1">
+            </div>
+          </form>
+          <hr>
+          {% block blogAsideCustom %}
+          {% endblock %}
+          <h4 class="text-wide">CATEGORIES</h4>
+          <ul class="text-purple">
+            {% nav category in craft.categories.group('instaBlogCategories') %}
+              <li>
+                <a href="{{ category.url }}">{{ category.title }}</a>
+                {% ifchildren %}
+                  <ul>
+                    {% children %}
+                  </ul>
+                {% endifchildren %}
+              </li>
+            {% endnav %}
+          </ul>      
+        </aside>
       </div>
     <div>
   </section>

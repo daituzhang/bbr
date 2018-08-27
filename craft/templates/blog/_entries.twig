@@ -1,21 +1,24 @@
 {% set queryString = query is defined ? '?q=' ~ query : '' %}
   {% if entries|length %}
     {% for blog in entries %}
-      <article itemtype="http://schema.org/Article">
+      <article itemtype="http://schema.org/Article" class="blog-search-entry">
         <header>
+          <p itemprop="datePublished" class="date-published text-wide"><strong>{{ blog.postDate.format('F d, Y') }}</strong></p>
           <h4><a href="/{{ blog.uri }}" itemprop="name">{{ blog.title }}</a></h4>
+          <a href="/blog/author/{{ blog.author.username }}" rel="author">{{ blog.author.fullName }}</a>
         </header>
-        <div>
-          <span itemprop="author">{{ blog.author.fullName }}</span>
+        <div itemprop="articleBody" class="blog-article-body">
+          {{ blog.instaBlogBody|striptags|truncate(240) }}
         </div>
-        <div itemprop="articleBody">
-          <span itemprop="datePublished">{{ blog.postDate.format('F d, Y') }}</span> - {{ blog.instaBlogBody|striptags|truncate(240) }}
-          <a class="more" href="/{{ blog.uri }}">Read More</a>
-        </div>
-        <footer>
-          {% include 'blog/_share.twig' %}
-        </footer>
+        <p>
+          Category:<span>
+          {% for category in blog.instaBlogCategories %}
+            <a href="{{ category.url }}">{{ category.title }}</a>
+          {% endfor %}
+          </span>
+        </p>
       </article>
+      <hr>
     {% endfor %}
 
       <nav>
@@ -28,13 +31,12 @@
           {% for page, url in paginate.getPrevUrls(5) %}
               <a href="{{ url ~ queryString }}">{{ page }}</a>
           {% endfor %}
-
-          <span class="current">{{ paginate.currentPage }}</span>
-
-          {% for page, url in paginate.getNextUrls(5) %}
-              <a href="{{ url ~ queryString }}">{{ page }}</a>
-          {% endfor %}
-
+          {% if (paginate.prevUrl) or (paginate.nextUrl) %}
+            <span class="current">{{ paginate.currentPage }}</span>
+            {% for page, url in paginate.getNextUrls(5) %}
+                <a href="{{ url ~ queryString }}">{{ page }}</a>
+            {% endfor %}
+          {% endif %}
           {% if paginate.nextUrl %}
             <a href="{{ paginate.nextUrl ~ queryString }}">>></a>
             <a href="{{ paginate.lastUrl ~ queryString }}">Last</a>

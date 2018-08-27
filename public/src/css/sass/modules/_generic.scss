@@ -27,6 +27,15 @@ section {
     text-align: center;
   }
 }
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
 .mobile-dropdown {
   @include mobile-only {
     h4 {

@@ -1,14 +1,12 @@
 {% extends craft.instaBlog.settings.layout|length ? craft.instaBlog.settings.layout : 'blog/_instablog-layout' %}
+{% block blogHeader %}
+  {% set backgroundImage = blog.blogHeaderImage|length == 0 ? "" : " background: url(" ~  blog.blogHeaderImage|first.url ~ ") no-repeat #000; background-size: cover; background-position: 50% 50%" %}
+  <section class="blog-header center" style="{{ backgroundImage }}">
+    <h1>{{blog.blogHeader}}</h1> 
+  </section>
+{% endblock %}
 
-{% block content %}
-<section id="instablog">
-  <header>
-    <h1>Blog</h1>  
-  </header>
-
-  {% paginate craft.entries.section('instaBlog').limit(10) as entries %}
+{% block blogBody %}
+  {% paginate craft.entries.section('instaBlog').limit(20) as entries %}
     {% include 'blog/_home-entries.twig' %}
-
-  {% include 'blog/_aside.twig' %}
-</section>
 {% endblock %}

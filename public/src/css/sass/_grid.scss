@@ -9,7 +9,7 @@
 }
 
 @media only screen and (max-width:48em){
-  [class^="col-"] {
+  [class^="col-"]:not(.xs-same) {
     ms-flex-preferred-size:100%;
     flex-basis:100%;
     max-width:100%

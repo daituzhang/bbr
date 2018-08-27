@@ -12,7 +12,6 @@ function parallax(){
       'start': $$.offset().top,
       'stop': $$.offset().top + $$.height(),
     };
-    //console.log(opts);
     if(( opts.start <= scroll.bottom) && (opts.stop >= scroll.top)) {
       if(mode == 'back') {
         newCoord = (scroll.top-opts.stop) * 0.15;
@@ -72,7 +71,6 @@ function parallax(){
 }
 
 function instagram(){
-  console.log('sdfk');
  $.ajax({
     url: "/get-instagram-feeds.php",
     data: {
@@ -81,7 +79,6 @@ function instagram(){
     success: function(json) {
       const data = JSON.parse(json).data;
       $.each(data, function(i, item){
-        console.log(item);
         var img = document.createElement("IMG");
         img.src = item.images.standard_resolution.url;
         img.className = 'col-xs-3';
@@ -179,7 +176,6 @@ function nav(){
     menuHeight = $('.mobile-top').height();
   });
   $('a[href*="#"]:not([href="#"])').click(function() {
-    console.log(location);
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
       var target = $(this.hash);
       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');

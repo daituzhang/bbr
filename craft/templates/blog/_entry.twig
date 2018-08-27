@@ -3,27 +3,31 @@
 {% set params = { section: 'instaBlog' } %}
 {% set next = entry.getNext(params) %}
 {% set prev = entry.getPrev(params) %}
-
+{% block blogHeader %}
+{% set backgroundImage = blog.blogHeaderImage|length == 0 ? "" : " background: url(" ~  blog.blogHeaderImage|first.url ~ ") no-repeat #000; background-size: cover; background-position: 50% 50%" %}
+<section class="blog-header blog-entry-header center" style="{{ backgroundImage }}">
+  <ul class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li>{{ entry.title }}</li>
+  </ul>
+  <h1>Blog</h1> 
+</section>
+{% endblock %}
 {% block blogBody %}
-    <p>
-      {% if prev %}
-      <a href="{{ prev.url }}"><< Previous</a>
-      {% endif %}        
-      {% if next %}
-      <a href="{{ next.url }}">Next >></a>
-      {% endif %}        
-    </p> 
-
-  <article itemscope itemtype="http://schema.org/Article" class="row">
-      <header>
-        <h3 class="text-purple"><a href="/blog">BACK TO BLOG</a></h3>
-        <hr>
+    <article itemscope itemtype="http://schema.org/Article" class="entry-body">
+      <header class="row">
+        <strong class="text-wide col-xs-6"><a href="/blog">BACK TO BLOG</a></strong>
+        {% if next %}
+        <strong class="text-wide text-right col-xs-6"><a href="{{ next.url }}">NEXT POST</a></strong>
+          {% endif %} 
+      </header>
+      <hr>
+      <div itemprop="articleBody" class="article-body">
         <p>
           <span itemprop="datePublished" class="date-published"><strong>{{ entry.postDate.format('F d, Y') }}</strong></span>       
         </p>
         <h1 itemprop="name">{{ entry.title }}</h1>
-      </header>
-      <div itemprop="articleBody" class="article-body">
         {% if entry.instaBlogImage | length %}
           <img class="featured-image" src="{{ entry.instaBlogImage | first.url }}">
         {% endif %}
@@ -31,7 +35,7 @@
       </div>
       <hr>
       <footer>
-        <p class="text-purple"><strong>For more eye-opening tips, follow me on social. </strong></p>
+        <p class="text-purple"><strong>{{blog.blogFooter}}</strong></p>
         <ul>
           <li class="social"><a class="icon-instagram" target="_blank" href="{{ siteInfo.facebook }}"></a></li>
           <li class="social"><a class="icon-facebook" target="_blank" href="{{ siteInfo.youtube }}"></a></li>
@@ -41,28 +45,21 @@
       </footer>
   </article>
 {% endblock %}
-{% block blogAside %}
-  <aside>
+{% block blogAsideCustom %}
+  <h4 class="text-wide">AUTHOR</h4>
+  <p class="text-purple" itemprop="author">
+    <a href="/blog/author/{{ entry.author.username }}" rel="author">{{ entry.author.fullName }}</a>
+  </p>
+  <hr>
+    <h4 class="text-wide">TAGS: </h4>
     <p>
-      <strong>AUTHOR</strong>
-      <br>
-      <span class="text-purple" itemprop="author">
-        <a href="/blog/author/{{ entry.author.username }}" rel="author">{{ entry.author.fullName }}</a>
-      </span>
-    </p>
-    <hr>
-    <p>
-      <strong>Tags: </strong>
-      <br>
-      {% for tag in entry.instaBlogTags %}
-      <a class="text-purple" href="/blog/tag/{{ tag.title|split(' ')|join('-')|lower }}">{{ tag.name }}</a>
-      {% if not loop.last %}, {% endif %}
-      {% endfor %}
-    </p>
-    <hr>
-    {% include 'blog/_share.twig' %}
-    <hr>
-    {% include 'blog/_aside.twig' %}
-  </aside>
+    {% for tag in entry.instaBlogTags %}
+    <a class="text-purple" href="/blog/tag/{{ tag.title|split(' ')|join('-')|lower }}">{{ tag.name }}</a>
+    {% if not loop.last %}, {% endif %}
+    {% endfor %}
+  </p>
+  <hr>
+  {% include 'blog/_share.twig' %}
+  <hr>
 {% endblock %}
 

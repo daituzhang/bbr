@@ -1,23 +1,21 @@
+{{ blog.blogIntro }}
+<h3 class="blog-latest-post-header text-wide">LATEST POSTS</h3>
 {% set queryString = query is defined ? '?q=' ~ query : '' %}
   {% if entries|length %}
     {% for blog in entries %}
-      <article itemtype="http://schema.org/Article" class="row">
-        {% set backgroundImage = blog.instaBlogImage|length == 0 ? "" : " background: url(" ~  blog.instaBlogImage|first.url ~ ") no-repeat #000; background-size: cover; background-position: 50% 50%" %}
-        <div class="col-xs-5" style="{{ backgroundImage }}"></div>
-        <div class="col-xs-7">
-          <header>
-            <h4><a href="/{{ blog.uri }}" itemprop="name">{{ blog.title }}</a></h4>
-          </header>
-          <div>
-            <span itemprop="author">{{ blog.author.fullName }}</span>
+      <article itemtype="http://schema.org/Article" class="blog-home-entry">
+        <div class="row no-gap">
+          {% set backgroundImage = blog.instaBlogImage|length == 0 ? "" : " background: url(" ~  blog.instaBlogImage|first.url ~ ") no-repeat #000; background-size: cover; background-position: 50% 50%" %}
+          <div class="col-xs-5 entry-left" style="{{ backgroundImage }}"></div>
+          <div class="col-xs-7">
+            <div itemprop="articleBody" class="entry-right">
+              <p itemprop="datePublished" class="date-published text-wide"><strong>{{ blog.postDate.format('F d, Y') }}</strong></p>
+              <h4>{{ blog.title }}</a></h4>
+
+              <p class="desktop-tablet-only">{{ blog.instaBlogBody|striptags|truncate(120) }}</p>
+              <p class="more text-wide"><a href="/{{ blog.uri }}"><strong>READ POST ></strong></a></p>
+            </div>
           </div>
-          <div itemprop="articleBody">
-            <span itemprop="datePublished">{{ blog.postDate.format('F d, Y') }}</span> - {{ blog.instaBlogBody|striptags|truncate(240) }}
-            <a class="more" href="/{{ blog.uri }}">Read More</a>
-          </div>
-          <footer>
-            {% include 'blog/_share.twig' %}
-          </footer>
         </div>
       </article>
     {% endfor %}
@@ -32,12 +30,14 @@
           {% for page, url in paginate.getPrevUrls(5) %}
               <a href="{{ url ~ queryString }}">{{ page }}</a>
           {% endfor %}
+          {% if (paginate.prevUrl) or (paginate.nextUrl) %}
 
-          <span class="current">{{ paginate.currentPage }}</span>
+            <span class="current">{{ paginate.currentPage }}</span>
 
-          {% for page, url in paginate.getNextUrls(5) %}
-              <a href="{{ url ~ queryString }}">{{ page }}</a>
-          {% endfor %}
+            {% for page, url in paginate.getNextUrls(5) %}
+                <a href="{{ url ~ queryString }}">{{ page }}</a>
+            {% endfor %}
+          {% endif %}
 
           {% if paginate.nextUrl %}
             <a href="{{ paginate.nextUrl ~ queryString }}">>></a>

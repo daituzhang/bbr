@@ -7,7 +7,12 @@ nav#mp-menu {
   padding: 10px;
   border-bottom: 1px solid #ccc;
   box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
-
+  transform: none;
+  left: 0;
+  font-size: 16px;
+  text-transform: uppercase;
+  transition: all .5s ease;
+  
   img {
     max-width: 123px;
   }
@@ -25,17 +30,12 @@ nav#mp-menu {
   li {
     font-size: 16px;
     letter-spacing: 2px;
+    list-style: none;
   }
   li a:not(.btn){
     font-weight: 500;
   }
   @include desktop-tablet {
-    transform: none;
-    left: 0;
-    font-size: 16px;
-    text-transform: uppercase;
-    transition: all .5s ease;
-
     ul {
       text-align: right;
     }
@@ -43,15 +43,10 @@ nav#mp-menu {
       display: inline-block;
       width: auto;
       vertical-align: middle;
-      margin-left: 4%;
+      margin-left: 15px;
     }
     .mobile-top {
       display: none;
-    }
-  }
-  @include mobile-only{
-    ul {
-      display: none
     }
   }
 }

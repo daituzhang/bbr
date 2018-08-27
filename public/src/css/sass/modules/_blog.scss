@@ -1,15 +1,99 @@
-#instablog {
+.blog-header {
+    color: $white;
+    font-size: 24px;
+    h1 {
+        margin-bottom: 0;
+    }
     a {
-        color: $purple;
+        color: lighten($purple, 40%);
+    }
+    text-align: center;
+}
+.blog-entry-header {
+    padding: 40px 5%;
+    font-weight:300;
+    text-align: left;
+}
+.blog-search-header {
+   h3 {
+       font-size: 24px;
+       font-weight: 300;
+   } 
+}
+.breadcrumb {
+    margin-bottom: 10px;
+    li {
+        display: inline-block;
+        &:not(:last-child)::after {
+            margin-left: 5px;
+            content: '>';
+            color: lighten($purple, 40%);            
+        } 
+    }
+}
+.blog-latest-post-header {
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+.blog-home-entry {
+    border: 2px solid $purple;
+    margin-bottom: .5rem;
+    min-height: 300px;
+    transition: all .5s ease;
+    &:hover {
+        box-shadow: 3px 7px 28px $purple;
+    }
+    strong {
+        font-size: 16px;
+    }
+    h4 {
+        font-size: 30px;
+        line-height: 1.2;
+        margin-bottom: 18px;
+        font-weight: 300;
+    }
+    p {
+        margin-bottom: 20px;
+    }
+    .entry-left {
+        min-height: 180px;
+    }
+    .entry-right {
+        padding: 20px;
+    }
+}
+.blog-search-entry {
+    h4 {
+        font-size: 24px;
+        font-weight: 300;
+        margin-bottom: 0;
+    }
+    header  {
+        margin-bottom: 20px;
+    }
+    .blog-article-body {
+        margin-bottom: 20px;
+    }
+}
+.blog-header, #instablog {
+    a {
         text-decoration: none;
         &:hover {
             text-decoration: underline;
         }
     }
+}
+#instablog {
+    font-size: 18px;
+    font-weight: 300;
+    a {
+        color: $purple;        
+    }
     article {
         font-size: 18px;
         header {
-            font-size: 16px;
+            margin-top: 10px;
+            margin-bottom: 29px;
         }
         h1 {
             font-size: 52px;
@@ -32,10 +116,16 @@
                 }
             }
         }
+        .featured-image {
+            margin-bottom: 20px;
+        }
         .article-body {
             a {
                 text-decoration: underline;
             }
+        }
+        &.entry-body {
+            padding: 20px 0;            
         }
     }
     hr {
@@ -43,5 +133,48 @@
     }
     .date-published {
         text-transform: uppercase;
+    }
+    aside {
+        font-size: 20px;
+        h4 {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        li {
+            list-style: none;
+            font-weight: 300;
+            margin-bottom: 5px;
+        }
+        .blog-share {
+            a {
+                color: $gray-dark;
+                margin-right: 8px;
+                padding-right: 10px;
+                &:not(:last-child) {
+                    border-right: 2px solid $gray-dark;
+                }
+                &:hover {
+                    color: $purple;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    .blog-search-header {
+        p {
+            margin-bottom: 15px
+        }
+        hr {
+            margin-top: 15px;
+        }
+    }
+}
+.text-wide {
+    letter-spacing: 2px;
+}
+
+@include mobile-only{
+    #instablog {
+        text-align: left;
     }
 }

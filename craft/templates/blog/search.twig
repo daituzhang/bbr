@@ -6,26 +6,22 @@
   {% set query = "" %}
 {% endif %}
 
-{% block content %}
-<section id="instablog">
-  <header>
-    <h1>Blog</h1>  
-  </header>
-  
+{% block blogBody %}
   {% paginate craft.entries.search(query).section('instaBlog').limit(10).order('score') as entries %}
 
     {% if entries|length %}
-      <article>
-        <h2>Search results for:</h2>
-        <h3>&ldquo;{{ query | title }}&rdquo;</h3>
-      </article>
-
+    <div class="blog-search-header">
+        <p><strong><a href="/blog">BACK TO BLOG HOME</a></strong></p>
+        <div class="row">
+          <h3 class="col-xs-8">Search results for: &ldquo;{{ query | title }}&rdquo;</span></h3>
+          <span class="col-xs-4 text-right">{{ entries|length }} Resultes</span>
+        </div>
+        <hr>
+      </div>
+      
       {% include 'blog/_entries.twig' %}
 
     {% else %}
       {% include 'blog/_not-found.twig' with {'type': 'search'} %}
     {% endif %}
-
-  {% include 'blog/_aside.twig' %}
-</section>
 {% endblock %}
