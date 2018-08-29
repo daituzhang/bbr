@@ -340,7 +340,6 @@ form {
   form option:disabled {
     display: none; }
   form select:not(:invalid) {
-    font-size: inherit;
     font-weight: 500;
     color: #9f9f9f; }
   form input {
