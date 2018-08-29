@@ -33,6 +33,11 @@ form {
       color: $gray-dark;
     }
   }
+  option:disabled {
+    font-size: inherit;
+    font-weight: 500;
+    color: $gray-dark;
+  }
   input {
     margin-bottom: 15px;
   }

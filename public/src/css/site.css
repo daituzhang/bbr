@@ -337,6 +337,10 @@ form {
       font-size: inherit;
       font-weight: 500;
       color: #9f9f9f; }
+  form option:disabled {
+    font-size: inherit;
+    font-weight: 500;
+    color: #9f9f9f; }
   form input {
     margin-bottom: 15px; }
   form input.blog-input {
