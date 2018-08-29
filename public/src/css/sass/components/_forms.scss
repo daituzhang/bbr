@@ -33,7 +33,7 @@ form {
       color: $gray-dark;
     }
   }
-  option:disabled {
+  select:invalid {
     font-size: inherit;
     font-weight: 500;
     color: $gray-dark;
