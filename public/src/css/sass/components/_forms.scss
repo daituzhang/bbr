@@ -33,7 +33,10 @@ form {
       color: $gray-dark;
     }
   }
-  select:invalid {
+  option:disabled {
+    display: none;
+  }
+  select:not(:invalid) {
     font-size: inherit;
     font-weight: 500;
     color: $gray-dark;
