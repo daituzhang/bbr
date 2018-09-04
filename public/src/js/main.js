@@ -72,7 +72,7 @@ function parallax(){
 
 function blogLoadMore(page) {
   $.ajax({
-    url: "/blog-load-more/p2",
+    url: "/blog/load-more/p"+page,
     success: function(data) {
       console.log(data);
       $('#blog-home-entries-container').append(data);
