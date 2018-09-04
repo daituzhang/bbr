@@ -9,9 +9,13 @@
     }
     text-align: center;
 }
+.blog-home-header {
+    height: 360px;
+    padding: 135px 5%;
+}
 .blog-entry-header {
     padding: 40px 5%;
-    font-weight:300;
+    font-weight:100;
     text-align: left;
 }
 .blog-search-header {
@@ -101,6 +105,7 @@
         footer {
             font-size: 14px;
             text-transform: uppercase;
+            letter-spacing: 2px;
             li {
                 font-size: 40px;
                 list-style: none;
@@ -133,6 +138,7 @@
     }
     .date-published {
         text-transform: uppercase;
+        letter-spacing: 2px;
     }
     aside {
         font-size: 20px;

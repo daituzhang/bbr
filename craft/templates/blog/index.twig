@@ -1,12 +1,42 @@
 {% extends craft.instaBlog.settings.layout|length ? craft.instaBlog.settings.layout : 'blog/_instablog-layout' %}
 {% block blogHeader %}
   {% set backgroundImage = blog.blogHeaderImage|length == 0 ? "" : " background: url(" ~  blog.blogHeaderImage|first.url ~ ") no-repeat #000; background-size: cover; background-position: 50% 50%" %}
-  <section class="blog-header center" style="{{ backgroundImage }}">
+  <section class="blog-header blog-home-header center" style="{{ backgroundImage }}">
     <h1>{{blog.blogHeader}}</h1> 
   </section>
 {% endblock %}
 
 {% block blogBody %}
-  {% paginate craft.entries.section('instaBlog').limit(20) as entries %}
+  {{ blog.blogIntro }}
+  <h3 class="blog-latest-post-header text-wide">LATEST POSTS</h3>
+  <div id="blog-home-entries-container">
+  {% paginate craft.entries.section('instaBlog').limit(2) as entries %}
     {% include 'blog/_home-entries.twig' %}
+  </div>
+  <button id="blog-load-more">Load More</button>
+
+        <nav>
+        {# Customize Pagination links Ref: http://buildwithcraft.com/docs/templating/paginate #}
+          {% if paginate.prevUrl %}
+            <a href="{{ paginate.firstUrl ~ queryString }}">First</a>
+            <a href="{{ paginate.prevUrl ~ queryString }}"><<</a>
+          {% endif %}
+
+          {% for page, url in paginate.getPrevUrls(5) %}
+              <a href="{{ url ~ queryString }}">{{ page }}</a>
+          {% endfor %}
+          {% if (paginate.prevUrl) or (paginate.nextUrl) %}
+
+            <span class="current">{{ paginate.currentPage }}</span>
+
+            {% for page, url in paginate.getNextUrls(5) %}
+                <a href="{{ url ~ queryString }}">{{ page }}</a>
+            {% endfor %}
+          {% endif %}
+
+          {% if paginate.nextUrl %}
+            <a href="{{ paginate.nextUrl ~ queryString }}">>></a>
+            <a href="{{ paginate.lastUrl ~ queryString }}">Last</a>
+          {% endif %}
+      </nav>
 {% endblock %}

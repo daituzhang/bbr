@@ -14,7 +14,7 @@ nav#mp-menu {
   transition: all .5s ease;
   
   img {
-    max-width: 123px;
+    max-width: 150px;
   }
 
   a {
@@ -33,6 +33,9 @@ nav#mp-menu {
     list-style: none;
   }
   li a:not(.btn){
+    font-weight: 300;
+  }
+  li.nav-selected a:not(.btn){
     font-weight: 500;
   }
   @include desktop-tablet {
@@ -43,7 +46,7 @@ nav#mp-menu {
       display: inline-block;
       width: auto;
       vertical-align: middle;
-      margin-left: 15px;
+      margin-left: 35px;
     }
     .mobile-top {
       display: none;

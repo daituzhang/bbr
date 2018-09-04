@@ -70,6 +70,16 @@ function parallax(){
   });
 }
 
+function blogLoadMore(page) {
+  $.ajax({
+    url: "/blog-load-more/p2",
+    success: function(data) {
+      console.log(data);
+      $('#blog-home-entries-container').append(data);
+    }
+  });
+}
+
 function instagram(){
  $.ajax({
     url: "/get-instagram-feeds.php",
@@ -199,11 +209,17 @@ function nav(){
   });
 }
 $(document).ready(function() {
+  var blogLoad = 1;
   $('.mobile-dropdown').click(function(e){
     $(this).toggleClass('open');
   });
   $('.about-body-trigger').click(function(e){
     $('.about-body').toggleClass('open');
+  });
+  $('#blog-load-more').click(function(e){
+    blogLoad++;
+    console.log(blogLoad);
+    blogLoadMore(blogLoad);
   });
   nav();
   slides();
