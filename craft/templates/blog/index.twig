@@ -10,7 +10,7 @@
   {{ blog.blogIntro }}
   <h3 class="blog-latest-post-header text-wide">LATEST POSTS</h3>
   <div id="blog-home-entries-container">
-  {% paginate craft.entries.section('instaBlog').limit(2) as entries %}
+  {% paginate craft.entries.section('instaBlog').limit(1) as entries %}
     {% include 'blog/_home-entries.twig' %}
   </div>
   <button id="blog-load-more">Load More</button>

@@ -20,43 +20,45 @@
   </section>
   {% endblock %}
   <section id="instablog">
-    <div class="row">
-      <div class="col-xs-9">
-        {% block blogBody %}
-        {% endblock %}
-      </div>
-      <div class="col-xs-3">
-        <aside>
-          {% if query is defined %}
-          {% else %}
-            {% set query = "" %}
-          {% endif %}
-          <form action="/blog/search">
-            <label for="search">
-              <h4>Search the blog</h4>
-            </label>
-            <div>
-              <input class="blog-input" type="text" name="q" placeholder="Search the blog" value="{{ query }}" tabindex="1">
-            </div>
-          </form>
-          <hr>
-          {% block blogAsideCustom %}
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-9">
+          {% block blogBody %}
           {% endblock %}
-          <h4 class="text-wide">CATEGORIES</h4>
-          <ul class="text-purple">
-            {% nav category in craft.categories.group('instaBlogCategories') %}
-              <li>
-                <a href="{{ category.url }}">{{ category.title }}</a>
-                {% ifchildren %}
-                  <ul>
-                    {% children %}
-                  </ul>
-                {% endifchildren %}
-              </li>
-            {% endnav %}
-          </ul>      
-        </aside>
-      </div>
-    <div>
+        </div>
+        <div class="col-xs-3">
+          <aside>
+            {% if query is defined %}
+            {% else %}
+              {% set query = "" %}
+            {% endif %}
+            <form action="/blog/search">
+              <label for="search">
+                <h4>Search the blog</h4>
+              </label>
+              <div>
+                <input class="blog-input" type="text" name="q" placeholder="Search the blog" value="{{ query }}" tabindex="1">
+              </div>
+            </form>
+            <hr>
+            {% block blogAsideCustom %}
+            {% endblock %}
+            <h4 class="text-wide">CATEGORIES</h4>
+            <ul class="text-purple">
+              {% nav category in craft.categories.group('instaBlogCategories') %}
+                <li>
+                  <a href="{{ category.url }}">{{ category.title }}</a>
+                  {% ifchildren %}
+                    <ul>
+                      {% children %}
+                    </ul>
+                  {% endifchildren %}
+                </li>
+              {% endnav %}
+            </ul>      
+          </aside>
+        </div>
+      <div>
+    </div>
   </section>
 {% endblock %}
