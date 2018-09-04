@@ -74,6 +74,7 @@ function blogLoadMore(page) {
   $.ajax({
     url: "/blog/load-more/p"+page,
     success: function(data) {
+      $('#blog-load-more').remove();
       console.log(data);
       $('#blog-home-entries-container').append(data);
     }

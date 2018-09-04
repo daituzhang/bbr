@@ -13,8 +13,6 @@
   {% paginate craft.entries.section('instaBlog').limit(1) as entries %}
     {% include 'blog/_home-entries.twig' %}
   </div>
-  <button id="blog-load-more">Load More</button>
-
         <nav>
         {# Customize Pagination links Ref: http://buildwithcraft.com/docs/templating/paginate #}
           {% if paginate.prevUrl %}
