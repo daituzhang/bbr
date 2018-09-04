@@ -12,7 +12,9 @@
   <div id="blog-home-entries-container">
   {% paginate craft.entries.section('instaBlog').limit(1) as entries %}
     {% include 'blog/_home-entries.twig' %}
-  <button id="blog-load-more" class="btn-white">Load More +</button>
+  {% if paginate.nextUrl %}
+    <button id="blog-load-more" class="btn-white">Load More +</button>
+  {% endif %}  
   </div>
         <nav>
         {# Customize Pagination links Ref: http://buildwithcraft.com/docs/templating/paginate #}
