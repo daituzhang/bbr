@@ -10,34 +10,10 @@
   {{ blog.blogIntro }}
   <h3 class="blog-latest-post-header text-wide">LATEST POSTS</h3>
   <div id="blog-home-entries-container">
-  {% paginate craft.entries.section('instaBlog').limit(1) as entries %}
+  {% paginate craft.entries.section('instaBlog').limit(3) as entries %}
     {% include 'blog/_home-entries.twig' %}
   {% if paginate.nextUrl %}
     <button id="blog-load-more" class="btn-white">Load More +</button>
   {% endif %}  
   </div>
-        <nav>
-        {# Customize Pagination links Ref: http://buildwithcraft.com/docs/templating/paginate #}
-          {% if paginate.prevUrl %}
-            <a href="{{ paginate.firstUrl ~ queryString }}">First</a>
-            <a href="{{ paginate.prevUrl ~ queryString }}"><<</a>
-          {% endif %}
-
-          {% for page, url in paginate.getPrevUrls(5) %}
-              <a href="{{ url ~ queryString }}">{{ page }}</a>
-          {% endfor %}
-          {% if (paginate.prevUrl) or (paginate.nextUrl) %}
-
-            <span class="current">{{ paginate.currentPage }}</span>
-
-            {% for page, url in paginate.getNextUrls(5) %}
-                <a href="{{ url ~ queryString }}">{{ page }}</a>
-            {% endfor %}
-          {% endif %}
-
-          {% if paginate.nextUrl %}
-            <a href="{{ paginate.nextUrl ~ queryString }}">>></a>
-            <a href="{{ paginate.lastUrl ~ queryString }}">Last</a>
-          {% endif %}
-      </nav>
 {% endblock %}

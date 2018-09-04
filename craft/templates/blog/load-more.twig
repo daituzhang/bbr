@@ -1,4 +1,4 @@
-{% paginate craft.entries.section('instaBlog').limit(1) as entries %}
+{% paginate craft.entries.section('instaBlog').limit(3) as entries %}
     {% include 'blog/_home-entries.twig' %}
 {% if paginate.nextUrl %}
   <button id="blog-load-more" class="btn-white">Load More +</button>
