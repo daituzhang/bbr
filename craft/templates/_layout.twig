@@ -102,7 +102,11 @@
 	{% block scripts_start %}{% endblock %}
     <!--  libraries downloaded from cdn -->
   {% cache for 3 weeks %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-2.1.4.min.js"
+      integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+      crossorigin="anonymous">
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script src="{{ craft.config.environmentVariables['frontEndAssets'] }}js/vendor/classie.js"></script>
     <script src="{{ craft.config.environmentVariables['frontEndAssets'] }}js/vendor/jquery.mobile.custom.min.js"></script>
