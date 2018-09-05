@@ -10,8 +10,8 @@
     text-align: center;
 }
 .blog-home-header {
-    height: 360px;
-    padding: 135px 5%;
+    height: 560px;
+    padding: 240px 5%;
 }
 .blog-entry-header {
     padding: 40px 5%;
@@ -90,6 +90,9 @@
 #instablog {
     font-size: 18px;
     font-weight: 300;
+    &.section .container {
+        max-width: 1240;
+    }
     a {
         color: $purple;        
     }
@@ -177,6 +180,12 @@
 }
 .text-wide {
     letter-spacing: 2px;
+}
+
+@include desktop-tablet {
+    .blog-main-body {
+        margin-right: 55px;
+    }
 }
 
 @include mobile-only{
