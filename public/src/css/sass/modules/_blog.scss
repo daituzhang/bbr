@@ -87,10 +87,10 @@
         }
     }
 }
-#instablog {
+section#instablog {
     font-size: 18px;
     font-weight: 300;
-    &.section .container {
+    .container {
         max-width: 1240;
     }
     a {
